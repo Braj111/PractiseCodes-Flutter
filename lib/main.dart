@@ -78,27 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-          child: CircleAvatar(
-            backgroundColor: Colors.green,
-            maxRadius: 60,
-            child: Container(
-              decoration: BoxDecoration(border: Border.all()),
-              width: 80,
-              height: 80,
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(border: Border.all()),
-                    width: 50,
-                      height: 50,
-                      child: Image.asset('assets/images/dog.png')),
-                  const Text('DogeMan')
-                ],
-              ),
-            ),
-          ),
+      body:Center(
+        child: Text(
+          'Hello Braj', style: TextStyle(fontFamily: 'text1', fontWeight: FontWeight.w500, fontSize: 55),
         ),
+      )
       );
   }
 }
