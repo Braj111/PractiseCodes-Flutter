@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:nepolean_codex/ui_helper/util.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,6 +25,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        textTheme: const TextTheme(
+          headline1: TextStyle(fontSize: 21, fontWeight: FontWeight.w500, fontStyle: FontStyle.italic),
+          subtitle1: TextStyle(fontSize: 51, fontWeight: FontWeight.w200, fontStyle: FontStyle.normal),
+        )
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -78,11 +81,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body:Center(
-        child: Text(
-          'Hello Braj', style: TextStyle(fontFamily: 'text1', fontWeight: FontWeight.w500, fontSize: 55),
-        ),
-      )
+      body: Column(
+        children: [
+          Text('Hello Braj', style: Theme.of(context).textTheme.headline1!.copyWith(color: Colors.blue)),
+          Text('hello world', style: Theme.of(context).textTheme.subtitle1,),
+          Text('Braj K Sharma', style: mTextStyle11())
+        ],
+      ) 
       );
   }
 }
