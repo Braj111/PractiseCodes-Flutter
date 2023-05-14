@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nepolean_codex/ui_helper/util.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -64,104 +65,39 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    var time = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(child: Container(
-        width: 400,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(
-                controller: emailText,
-                style: TextStyle(fontSize: 20),
-                enabled: true,
-                decoration: InputDecoration(
-                  hintText: "Enter Email",
-                  suffixText: "Verified",
-                  suffixIcon:IconButton(
-                    icon: Icon(Icons.remove_red_eye, color: Colors.red),
-                    onPressed: (){},
-                  ),
-                  prefixIcon: Icon(Icons.email, color: Colors.red,),
-                  disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.black,
-                      )
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.blue,
-                      )
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(
-                        width: 2,
-                        color: Colors.orangeAccent,
-                      )
+      body: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Select Date'),
+          ElevatedButton(onPressed:() async {
+            DateTime? datePicked = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2021),
+                lastDate: DateTime(2025));
 
-                  )
-                ),),
-              Container(height: 11, ),
-              TextField(
-                keyboardType: TextInputType.number,
-                controller: passText,
-                obscureText: true,
-                obscuringCharacter: "*",
-                style: TextStyle(fontSize: 20),
-                enabled: true,
-                decoration: InputDecoration(
-                  hintText: "Enter Password",
-                    suffixText: "Verified",
-                    suffixIcon:IconButton(
-                      icon: Icon(Icons.remove_red_eye, color: Colors.red),
-                      onPressed: (){},
-                    ),
-                    prefixIcon: Icon(Icons.email, color: Colors.red,),
-                    disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Colors.black,
-                        )
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Colors.blue,
-                        )
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: Colors.orangeAccent,
-                        )
+            if(datePicked!=null){
+               print('time now is ${datePicked.month}/${datePicked.year}');
+            }
+            }, child: Text('Show')),
+          ElevatedButton(onPressed:() async {
+            TimeOfDay? timePicked = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now());
 
-                    )
-                ),),
-              ElevatedButton(onPressed: (){
-                String uEmail = emailText.text.toString();
-                String uPass = passText.text;
-
-                print("Email: $uEmail, Pass: $uPass");
-
-
-              }, child: Text(
-                'Login'
-              ))
-
-            ],
-          )))
+            if(timePicked!=null){
+              print('time now is ${timePicked.hour}/${timePicked.minute}');
+            }
+          }, child: Text('Show'))
+        ],
+      ))
       );
   }
 }
