@@ -54,19 +54,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
+  var emailText = TextEditingController();
+  var passText = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -81,13 +70,98 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Column(
-        children: [
-          Text('Hello Braj', style: Theme.of(context).textTheme.headline1!.copyWith(color: Colors.blue)),
-          Text('hello world', style: Theme.of(context).textTheme.subtitle1,),
-          Text('Braj K Sharma', style: mTextStyle11())
-        ],
-      ) 
+      body: Center(child: Container(
+        width: 400,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: emailText,
+                style: TextStyle(fontSize: 20),
+                enabled: true,
+                decoration: InputDecoration(
+                  hintText: "Enter Email",
+                  suffixText: "Verified",
+                  suffixIcon:IconButton(
+                    icon: Icon(Icons.remove_red_eye, color: Colors.red),
+                    onPressed: (){},
+                  ),
+                  prefixIcon: Icon(Icons.email, color: Colors.red,),
+                  disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.black,
+                      )
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.blue,
+                      )
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide(
+                        width: 2,
+                        color: Colors.orangeAccent,
+                      )
+
+                  )
+                ),),
+              Container(height: 11, ),
+              TextField(
+                keyboardType: TextInputType.number,
+                controller: passText,
+                obscureText: true,
+                obscuringCharacter: "*",
+                style: TextStyle(fontSize: 20),
+                enabled: true,
+                decoration: InputDecoration(
+                  hintText: "Enter Password",
+                    suffixText: "Verified",
+                    suffixIcon:IconButton(
+                      icon: Icon(Icons.remove_red_eye, color: Colors.red),
+                      onPressed: (){},
+                    ),
+                    prefixIcon: Icon(Icons.email, color: Colors.red,),
+                    disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: Colors.black,
+                        )
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: Colors.blue,
+                        )
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          width: 2,
+                          color: Colors.orangeAccent,
+                        )
+
+                    )
+                ),),
+              ElevatedButton(onPressed: (){
+                String uEmail = emailText.text.toString();
+                String uPass = passText.text;
+
+                print("Email: $uEmail, Pass: $uPass");
+
+
+              }, child: Text(
+                'Login'
+              ))
+
+            ],
+          )))
       );
   }
 }
