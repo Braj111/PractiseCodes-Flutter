@@ -88,17 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
             }
             }, child: Text('Show')),
           ElevatedButton(onPressed:() async {
-            DateTime? datePicked = await showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(2018),
-                lastDate: DateTime(2030));
-
-            if(datePicked!=null){
-              print('time now is ${datePicked.month}/${datePicked.year}');
-            }
-          }, child: Text('Blow')),
-          ElevatedButton(onPressed:() async {
             TimeOfDay? timePicked = await showTimePicker(
                 context: context,
                 initialTime: TimeOfDay.now());
