@@ -95,7 +95,62 @@ class _MyHomePageState extends State<MyHomePage> {
             if(timePicked!=null){
               print('time now is ${timePicked.hour}/${timePicked.minute}');
             }
-          }, child: Text('Show'))
+          }, child: Text('Show')),
+          ElevatedButton(onPressed:() async {
+            TimeOfDay? timePicked = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now());
+
+            if(timePicked!=null){
+              print('time now is ${timePicked.hour}/${timePicked.minute}');
+            }
+          }, child: Text('Show')),
+          ElevatedButton(onPressed:() async {
+            TimeOfDay? timePicked = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now());
+
+            if(timePicked!=null){
+              print('time now is ${timePicked.hour}/${timePicked.minute}');
+            }
+          }, child: Text('Show')),
+          ElevatedButton(onPressed:() async {
+            TimeOfDay? timePicked = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now());
+
+            if(timePicked!=null){
+              print('time now is ${timePicked.hour}/${timePicked.minute}');
+            }
+          }, child: Text('Show')),
+          ElevatedButton(onPressed:() async {
+            TimeOfDay? timePicked = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now());
+
+            if(timePicked!=null){
+              print('time now is ${timePicked.hour}/${timePicked.minute}');
+            }
+          }, child: Text('Show')),
+          ElevatedButton(onPressed:() async {
+            TimeOfDay? timePicked = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now());
+
+            if(timePicked!=null){
+              print('time now is ${timePicked.hour}/${timePicked.minute}');
+            }
+          }, child: Text('Show')),
+          ElevatedButton(onPressed:() async {
+            TimeOfDay? timePicked = await showTimePicker(
+                context: context,
+                initialTime: TimeOfDay.now());
+
+            if(timePicked!=null){
+              print('time now is ${timePicked.hour}/${timePicked.minute}');
+            }
+          }, child: Text('Show')),
+
         ],
       ))
       );
