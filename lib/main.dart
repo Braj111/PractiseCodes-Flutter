@@ -73,45 +73,20 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(20),
-        //crossAxisSpacing: 10,
-        //mainAxisSpacing: 10,
-        crossAxisCount: 2,
-        children: <Widget>[
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('He\'d have you all unravel at the'),
-            color: Colors.teal[100],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Heed not the rabble'),
-            color: Colors.teal[200],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Sound of screams but the'),
-            color: Colors.teal[300],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Who scream'),
-            color: Colors.teal[400],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Revolution is coming...'),
-            color: Colors.teal[500],
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: const Text('Revolution, they...'),
-            color: Colors.teal[600],
-          ),
-        ],
-      )
+      body: GridView.extent(maxCrossAxisExtent: 400,
+      padding: EdgeInsets.all(10),
+      crossAxisSpacing: 10,
+      mainAxisSpacing: 10,
+      children: [
+        Container(color: arrColors[1]),
+        Container(color: arrColors[2]),
+        Container(color: arrColors[3]),
+        Container(color: arrColors[4]),
+        Container(color: arrColors[6]),
+        Container(color: arrColors[7]),
+        Container(color: arrColors[0]),
+        Container(color: arrColors[5]),
+      ],)
       );
   }
 }
