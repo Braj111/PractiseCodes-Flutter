@@ -57,6 +57,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var emailText = TextEditingController();
   var passText = TextEditingController();
+  var arrColors = [Colors.red, Colors.green,Colors.orange,Colors.yellow,Colors.blue,Colors.purple,Colors.pink,Colors.brown];
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -72,87 +73,45 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Select Date'),
-          ElevatedButton(onPressed:() async {
-            DateTime? datePicked = await showDatePicker(
-                context: context,
-                initialDate: DateTime.now(),
-                firstDate: DateTime(2021),
-                lastDate: DateTime(2025));
-
-            if(datePicked!=null){
-               print('time now is ${datePicked.month}/${datePicked.year}');
-            }
-            }, child: Text('Show')),
-          ElevatedButton(onPressed:() async {
-            TimeOfDay? timePicked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now());
-
-            if(timePicked!=null){
-              print('time now is ${timePicked.hour}/${timePicked.minute}');
-            }
-          }, child: Text('Show')),
-          ElevatedButton(onPressed:() async {
-            TimeOfDay? timePicked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now());
-
-            if(timePicked!=null){
-              print('time now is ${timePicked.hour}/${timePicked.minute}');
-            }
-          }, child: Text('Show')),
-          ElevatedButton(onPressed:() async {
-            TimeOfDay? timePicked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now());
-
-            if(timePicked!=null){
-              print('time now is ${timePicked.hour}/${timePicked.minute}');
-            }
-          }, child: Text('Show')),
-          ElevatedButton(onPressed:() async {
-            TimeOfDay? timePicked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now());
-
-            if(timePicked!=null){
-              print('time now is ${timePicked.hour}/${timePicked.minute}');
-            }
-          }, child: Text('Show')),
-          ElevatedButton(onPressed:() async {
-            TimeOfDay? timePicked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now());
-
-            if(timePicked!=null){
-              print('time now is ${timePicked.hour}/${timePicked.minute}');
-            }
-          }, child: Text('Show')),
-          ElevatedButton(onPressed:() async {
-            TimeOfDay? timePicked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now());
-
-            if(timePicked!=null){
-              print('time now is ${timePicked.hour}/${timePicked.minute}');
-            }
-          }, child: Text('Show')),
-          ElevatedButton(onPressed:() async {
-            TimeOfDay? timePicked = await showTimePicker(
-                context: context,
-                initialTime: TimeOfDay.now());
-
-            if(timePicked!=null){
-              print('time now is ${timePicked.hour}/${timePicked.minute}');
-            }
-          }, child: Text('Show')),
-
+      body: GridView.count(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        //crossAxisSpacing: 10,
+        //mainAxisSpacing: 10,
+        crossAxisCount: 2,
+        children: <Widget>[
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('He\'d have you all unravel at the'),
+            color: Colors.teal[100],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Heed not the rabble'),
+            color: Colors.teal[200],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Sound of screams but the'),
+            color: Colors.teal[300],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Who scream'),
+            color: Colors.teal[400],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Revolution is coming...'),
+            color: Colors.teal[500],
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            child: const Text('Revolution, they...'),
+            color: Colors.teal[600],
+          ),
         ],
-      ))
+      )
       );
   }
 }
