@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(color: arrColors[7]),
         Container(color: arrColors[0]),
         Container(color: arrColors[5]),
-      ],)
+      ],),
       );
   }
 }
