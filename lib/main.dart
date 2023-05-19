@@ -1,3 +1,5 @@
+//import 'dart:js_util';
+
 import 'package:flutter/material.dart';
 import 'package:nepolean_codex/ui_helper/util.dart';
 import 'package:intl/intl.dart';
@@ -73,20 +75,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: GridView.extent(maxCrossAxisExtent: 400,
-      padding: EdgeInsets.all(10),
-      crossAxisSpacing: 10,
-      mainAxisSpacing: 10,
-      children: [
-        Container(color: arrColors[1]),
-        Container(color: arrColors[2]),
-        Container(color: arrColors[3]),
-        Container(color: arrColors[4]),
-        Container(color: arrColors[6]),
-        Container(color: arrColors[7]),
-        Container(color: arrColors[0]),
-        Container(color: arrColors[5]),
-      ],),
+      body: GridView.builder(itemBuilder: (context, index) {
+        return Container(color: arrColors[index],);
+      }, itemCount: arrColors.length, gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3, mainAxisSpacing: 20, crossAxisSpacing: 20, 
+      )
+      )
       );
-  }
+  }               
 }
