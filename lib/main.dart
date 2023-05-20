@@ -75,11 +75,33 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: GridView.builder(itemBuilder: (context, index) {
-        return Container(color: arrColors[index],);
-      }, itemCount: arrColors.length, gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, mainAxisSpacing: 20, crossAxisSpacing: 20, 
-      )
+      body: Container(
+        height: 300,
+        width: 300,
+        color: Colors.orange,
+        child: Stack(
+          children: [
+            Positioned(
+              left: 20,
+              top: 20,
+              child: Container(
+                width: 200,
+                height: 200,
+                color: Colors.red,
+              ),
+            ),
+            Container(
+              width: 150,
+              height: 150,
+              color: Colors.green,
+            ),
+            // Container(
+            //   width: 100,
+            //   height: 100,
+            //   color: Colors.blue,
+            // )
+          ],
+        ),
       )
       );
   }               
