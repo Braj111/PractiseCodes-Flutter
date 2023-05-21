@@ -76,22 +76,117 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Container(
-          width: 150,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RoundedButton(btnname: 'Pause', icon: Icon(Icons.pause),bgcolor: Colors.red, callBack: (){
-                print('Work Hard Success is Yours');
-              }),
-              RoundedButton(btnname: 'Play', icon: Icon(Icons.play_arrow), callBack: (){
-                print('Work Hard Success is Yours');
-              }),
-            ],
+      body: Wrap(
+        direction:Axis.vertical ,
+        children: [
+          SizedBox.square(
+          dimension: 100,
+          child: ElevatedButton(
+            onPressed: () {  },
+            child: Text('Braj'),
           ),
         ),
-      )
+          SizedBox(
+            height: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          SizedBox.square(
+            dimension: 100,
+            child: ElevatedButton(
+              onPressed: () {  },
+              child: Text('Braj'),
+            ),
+          ),
+      ])
       );
   }               
 }
