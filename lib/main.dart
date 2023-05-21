@@ -76,117 +76,16 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Wrap(
-        direction:Axis.vertical ,
-        children: [
-          SizedBox.square(
-          dimension: 100,
-          child: ElevatedButton(
-            onPressed: () {  },
-            child: Text('Braj'),
-          ),
+      body:RichText(
+        text: TextSpan(
+          style: TextStyle(color: Colors.green, fontSize: 16),
+          children: <TextSpan>[
+            TextSpan(text: 'Hello'),
+            TextSpan(text: 'BRAJ    ',style: TextStyle(fontSize: 34, color: Colors.blue, fontWeight: FontWeight.bold) ),
+            TextSpan(text: 'Braj is Great!! ', style: TextStyle(fontFamily:'text1', color: Colors.pink, fontSize: 45 , fontWeight: FontWeight.bold))
+          ]
         ),
-          SizedBox(
-            height: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          SizedBox.square(
-            dimension: 100,
-            child: ElevatedButton(
-              onPressed: () {  },
-              child: Text('Braj'),
-            ),
-          ),
-      ])
+      )
       );
   }               
 }
