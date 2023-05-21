@@ -77,13 +77,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        height: 600,
+        width: 600,
+        color: Colors.purple,
+        child: Stack(
           children: [
-            Icon(Icons.play_arrow),
-            FaIcon(FontAwesomeIcons.amazon, size: 56,),
-            FaIcon(FontAwesomeIcons.flipboard)
+            Positioned(child: Container(color: Colors.red, height: 100,width: 100,), bottom: 200,left: 200,)
           ],
         ),
       )
