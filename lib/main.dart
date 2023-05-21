@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:nepolean_codex/ui_helper/util.dart';
 import 'package:intl/intl.dart';
+import 'package:nepolean_codex/widgets/rounded_btn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -75,32 +76,20 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Container(
-        height: 300,
-        width: 300,
-        color: Colors.orange,
-        child: Stack(
-          children: [
-            Positioned(
-              left: 20,
-              top: 20,
-              child: Container(
-                width: 200,
-                height: 200,
-                color: Colors.red,
-              ),
-            ),
-            Container(
-              width: 150,
-              height: 150,
-              color: Colors.green,
-            ),
-            // Container(
-            //   width: 100,
-            //   height: 100,
-            //   color: Colors.blue,
-            // )
-          ],
+      body: Center(
+        child: Container(
+          width: 150,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RoundedButton(btnname: 'Pause', icon: Icon(Icons.pause),bgcolor: Colors.red, callBack: (){
+                print('Work Hard Success is Yours');
+              }),
+              RoundedButton(btnname: 'Play', icon: Icon(Icons.play_arrow), callBack: (){
+                print('Work Hard Success is Yours');
+              }),
+            ],
+          ),
         ),
       )
       );
