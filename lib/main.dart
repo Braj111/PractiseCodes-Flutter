@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nepolean_codex/ui_helper/util.dart';
 import 'package:intl/intl.dart';
 import 'package:nepolean_codex/widgets/rounded_btn.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,14 +77,14 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body:RichText(
-        text: TextSpan(
-          style: TextStyle(color: Colors.green, fontSize: 16),
-          children: <TextSpan>[
-            TextSpan(text: 'Hello'),
-            TextSpan(text: 'BRAJ    ',style: TextStyle(fontSize: 34, color: Colors.blue, fontWeight: FontWeight.bold) ),
-            TextSpan(text: 'Braj is Great!! ', style: TextStyle(fontFamily:'text1', color: Colors.pink, fontSize: 45 , fontWeight: FontWeight.bold))
-          ]
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.play_arrow),
+            FaIcon(FontAwesomeIcons.amazon, size: 56,),
+            FaIcon(FontAwesomeIcons.flipboard)
+          ],
         ),
       )
       );
