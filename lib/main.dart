@@ -35,58 +35,42 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(fontSize: 51, fontWeight: FontWeight.w200, fontStyle: FontStyle.normal),
         )
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<StatefulWidget> createState() {
+    return _MyHomePageState(); //returning a state
+  }
+
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  var emailText = TextEditingController();
-  var passText = TextEditingController();
-  var arrColors = [Colors.red, Colors.green,Colors.orange,Colors.yellow,Colors.blue,Colors.purple,Colors.pink,Colors.brown];
+class _MyHomePageState extends State<MyHomePage> {// a State class
+ int count =0;
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    var time = DateTime.now();
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+      appBar:AppBar(
+        title: Text('Braj\'s App'),
       ),
-      body: Container(
-        height: 600,
-        width: 600,
-        color: Colors.purple,
-        child: Stack(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Positioned(child: Container(color: Colors.red, height: 100,width: 100,), bottom: 200,left: 200,)
+            Text('$count'),
+            ElevatedButton(onPressed: (){
+              setState(() {
+                count++;
+              });
+            }, child: Text('Hello World of Braj'))
           ],
         ),
-      )
-      );
-  }               
+      ),
+
+    );
+  }
+
 }
