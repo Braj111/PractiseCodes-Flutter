@@ -49,26 +49,54 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {// a State class
- int count =0;
+ var no1Controller= TextEditingController();
+ var no2Controller= TextEditingController();
+ var result ="";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        title: Text('Braj\'s App'),
+        title: Text('My Calculator Application'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('$count'),
-            ElevatedButton(onPressed: (){
-              setState(() {
-                count++;
-              });
-            }, child: Text('Hello World of Braj'))
-          ],
+      body: Container(
+        color: Colors.yellow,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(19.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(controller: no1Controller, keyboardType: TextInputType.number,),
+                TextField(controller: no2Controller,keyboardType: TextInputType.number),
+                Padding(
+                  padding: const EdgeInsets.all(21.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(onPressed: (){
+                        var no1 = int.parse(no1Controller.text.toString());
+                        var no2 = int.parse(no1Controller.text.toString());
+                        var sum= no1+no2;
+                        result ='$sum';
+                        setState(() {});
+
+                      }, child: Text('Add')),
+                      ElevatedButton(onPressed: (){}, child: Text('Sub')),
+                      ElevatedButton(onPressed: (){}, child: Text('Mul')),
+                      ElevatedButton(onPressed: (){}, child: Text('Div')),
+                      ElevatedButton(onPressed: (){}, child: Text('Equal')),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(21.0),
+                  child: Text(result, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 45),)
+                )
+              ],
+            ),
+          ),
         ),
-      ),
+      )
 
     );
   }
