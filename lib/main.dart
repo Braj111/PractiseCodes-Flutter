@@ -1,10 +1,10 @@
 //import 'dart:js_util';
 
 import 'package:flutter/material.dart';
-import 'package:nepolean_codex/ui_helper/util.dart';
-import 'package:intl/intl.dart';
-import 'package:nepolean_codex/widgets/rounded_btn.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:nepolean_codex/ui_helper/util.dart';
+// import 'package:intl/intl.dart';
+// import 'package:nepolean_codex/widgets/rounded_btn.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {// a State class
  var no1Controller= TextEditingController();
  var no2Controller= TextEditingController();
- var result ="";
+ var result =" ";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,16 +75,37 @@ class _MyHomePageState extends State<MyHomePage> {// a State class
                     children: [
                       ElevatedButton(onPressed: (){
                         var no1 = int.parse(no1Controller.text.toString());
-                        var no2 = int.parse(no1Controller.text.toString());
-                        var sum= no1+no2;
-                        result ='$sum';
-                        setState(() {});
+                        var no2 = int.parse(no2Controller.text.toString());
+                        var sum= no1 + no2;
+                        result ='the sum is $sum';
+                        print(sum);
+                        setState((){});
 
                       }, child: Text('Add')),
-                      ElevatedButton(onPressed: (){}, child: Text('Sub')),
-                      ElevatedButton(onPressed: (){}, child: Text('Mul')),
-                      ElevatedButton(onPressed: (){}, child: Text('Div')),
-                      ElevatedButton(onPressed: (){}, child: Text('Equal')),
+                      ElevatedButton(onPressed: (){
+                        var no1 = int.parse(no1Controller.text.toString());
+                        var no2 = int.parse(no2Controller.text.toString());
+                        var sub= no1 - no2;
+                        result ='$sub';
+                        print(sub);
+                        setState((){});
+                      }, child: Text('Sub')),
+                      ElevatedButton(onPressed: (){
+                        var no1 = int.parse(no1Controller.text.toString());
+                        var no2 = int.parse(no2Controller.text.toString());
+                        var mul= no1 * no2;
+                        result ='${mul}';
+                        print(mul);
+                        setState((){});
+                      }, child: Text('Mul')),
+                      ElevatedButton(onPressed: (){
+                        var no1 = int.parse(no1Controller.text.toString());
+                        var no2 = int.parse(no2Controller.text.toString());
+                        var div= no1 / no2;
+                        result ='${div.toStringAsFixed(2) }';
+                        print(div);
+                        setState((){});
+                      }, child: Text('Div')),
                     ],
                   ),
                 ),
