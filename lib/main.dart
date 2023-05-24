@@ -58,66 +58,17 @@ class _MyHomePageState extends State<MyHomePage> {// a State class
       appBar:AppBar(
         title: Text('My Calculator Application'),
       ),
-      body: Container(
-        color: Colors.yellow,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(19.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextField(controller: no1Controller, keyboardType: TextInputType.number,),
-                TextField(controller: no2Controller,keyboardType: TextInputType.number),
-                Padding(
-                  padding: const EdgeInsets.all(21.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(onPressed: (){
-                        var no1 = int.parse(no1Controller.text.toString());
-                        var no2 = int.parse(no2Controller.text.toString());
-                        var sum= no1 + no2;
-                        result ='the sum is $sum';
-                        print(sum);
-                        setState((){});
-
-                      }, child: Text('Add')),
-                      ElevatedButton(onPressed: (){
-                        var no1 = int.parse(no1Controller.text.toString());
-                        var no2 = int.parse(no2Controller.text.toString());
-                        var sub= no1 - no2;
-                        result ='$sub';
-                        print(sub);
-                        setState((){});
-                      }, child: Text('Sub')),
-                      ElevatedButton(onPressed: (){
-                        var no1 = int.parse(no1Controller.text.toString());
-                        var no2 = int.parse(no2Controller.text.toString());
-                        var mul= no1 * no2;
-                        result ='${mul}';
-                        print(mul);
-                        setState((){});
-                      }, child: Text('Mul')),
-                      ElevatedButton(onPressed: (){
-                        var no1 = int.parse(no1Controller.text.toString());
-                        var no2 = int.parse(no2Controller.text.toString());
-                        var div= no1 / no2;
-                        result ='${div.toStringAsFixed(2) }';
-                        print(div);
-                        setState((){});
-                      }, child: Text('Div')),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(21.0),
-                  child: Text(result, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 45),)
-                )
-              ],
-            ),
-          ),
+      body:ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 200,
+          maxHeight: 200
         ),
-      )
+        child: Column(
+          children: [
+            Text('Hello Braj', style: TextStyle(fontSize: 12, overflow: TextOverflow.fade),),
+            Container(color: Colors.blue,)
+          ],
+        ),)
 
     );
   }
