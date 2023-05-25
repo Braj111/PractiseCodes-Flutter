@@ -1,6 +1,7 @@
 //import 'dart:js_util';
 
 import 'package:flutter/material.dart';
+import 'package:nepolean_codex/IntroPage.dart';
 // import 'package:nepolean_codex/ui_helper/util.dart';
 // import 'package:intl/intl.dart';
 // import 'package:nepolean_codex/widgets/rounded_btn.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
+         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
         // application has a blue toolbar. Then, without quitting the app, try
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(fontSize: 51, fontWeight: FontWeight.w200, fontStyle: FontStyle.normal),
         )
       ),
-      home: MyHomePage(),
+      home: IntroPage(),
     );
   }
 }
@@ -58,16 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {// a State class
       appBar:AppBar(
         title: Text('My Calculator Application'),
       ),
-      body:ConstrainedBox(
-        constraints: BoxConstraints(
-            minHeight: 50,
-            minWidth: 50,
-            maxWidth: 100,
-            maxHeight: 100
-        ),
-        child: Text('subtitle1 is deprecated and shouldn\'t be used. Use titleMedium instead. This feature was deprecated after v3.1.0-0.0.pre.'
-        ,overflow: TextOverflow.fade,)
-        )
+      body: Text('HelloWorld')
 
     );
    }
