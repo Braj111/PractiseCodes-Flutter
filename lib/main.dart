@@ -60,17 +60,16 @@ class _MyHomePageState extends State<MyHomePage> {// a State class
       ),
       body:ConstrainedBox(
         constraints: BoxConstraints(
-          maxWidth: 200,
-          maxHeight: 200
+            minHeight: 50,
+            minWidth: 50,
+            maxWidth: 100,
+            maxHeight: 100
         ),
-        child: Column(
-          children: [
-            Text('Hello Braj', style: TextStyle(fontSize: 12, overflow: TextOverflow.fade),),
-            Container(color: Colors.blue,)
-          ],
-        ),)
+        child: Text('subtitle1 is deprecated and shouldn\'t be used. Use titleMedium instead. This feature was deprecated after v3.1.0-0.0.pre.'
+        ,overflow: TextOverflow.fade,)
+        )
 
     );
-  }
+   }
 
 }
