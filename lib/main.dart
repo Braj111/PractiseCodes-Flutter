@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:nepolean_codex/IntroPage.dart';
+import 'package:nepolean_codex/splash_screen.dart';
 // import 'package:nepolean_codex/ui_helper/util.dart';
 // import 'package:intl/intl.dart';
 // import 'package:nepolean_codex/widgets/rounded_btn.dart';
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(fontSize: 51, fontWeight: FontWeight.w200, fontStyle: FontStyle.normal),
         )
       ),
-      home: IntroPage(),
+      home: splash_screen()
     );
   }
 }
