@@ -25,7 +25,7 @@ class _splash_screenState extends State<splash_screen> {
       body: Container(
         color: Colors.blue,
         child: Center(
-          child: Text('KING BRAJ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32, color: Colors.white),)
+          child: Text('WeBiased', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32, color: Colors.white),)
       ),
         ),
     );
