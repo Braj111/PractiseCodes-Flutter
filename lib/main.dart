@@ -51,16 +51,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {// a State class
- var no1Controller= TextEditingController();
- var no2Controller= TextEditingController();
- var result =" ";
+ var nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
-        title: Text('My Calculator Application'),
-      ),
-      body: Text('HelloWorld')
+      appBar:AppBar(title: Text('My Application'),),
+      body: Center(
+        child: Container(
+          width: 300,
+          height: 300,
+          color:Colors.white,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Welcome User!!', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.blue),),
+              TextField(controller: nameController),
+              ElevatedButton(onPressed: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => IntroPage(nameController.text.toString())));
+              }, child: Text('Login'))
+            ],
+          ),
+        ),
+      )
 
     );
    }
