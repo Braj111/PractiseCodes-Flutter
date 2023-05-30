@@ -51,28 +51,30 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {// a State class
- var nameController = TextEditingController();
+  RangeValues values = RangeValues(0, 100); //this may show error, hence change min and max value to required value
   @override
   Widget build(BuildContext context) {
+    RangeLabels lables = RangeLabels(values.start.toString(), values.end.toString());
+// initialised 'lables' inside build so as to rebuild this again and again as the change happens by the user
     return Scaffold(
       appBar:AppBar(title: Text('My Application'),),
       body: Center(
-        child: Container(
-          width: 300,
-          height: 300,
-          color:Colors.white,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Welcome User!!', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.blue),),
-              TextField(controller: nameController),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => IntroPage(nameController.text.toString())));
-              }, child: Text('Login'))
-            ],
-          ),
-        ),
+          child: RangeSlider(
+            min: 0,
+            max: 100,
+            labels: lables,
+            divisions: 20,
+            activeColor: Colors.orange,
+            inactiveColor: Colors.purple,
+            values: values,
+            onChanged: (newValue){
+              values = newValue;
+              print('${newValue.start},${newValue.end}'); // this give what user has selected for further use
+              setState(() {
+
+              });
+            },)
+
       )
 
     );
