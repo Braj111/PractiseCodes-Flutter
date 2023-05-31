@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           subtitle1: TextStyle(fontSize: 51, fontWeight: FontWeight.w200, fontStyle: FontStyle.normal),
         )
       ),
-      home: splash_screen()
+      home: MyHomePage()
     );
   }
 }
@@ -50,31 +50,48 @@ class MyHomePage extends StatefulWidget {
 
 }
 
-class _MyHomePageState extends State<MyHomePage> {// a State class
-  RangeValues values = RangeValues(0, 100); //this may show error, hence change min and max value to required value
+class _MyHomePageState extends State<MyHomePage> {
+
+
+  var _height= 200.0;     //"_var" underscore at starting used to make this variable private
+  var _width = 100.0;    // should be double as Animated container height and width are by default double
+  var flag = false;
+  Decoration myDecor= BoxDecoration(borderRadius: BorderRadius.circular(2), color: Colors.orange);
+
   @override
   Widget build(BuildContext context) {
-    RangeLabels lables = RangeLabels(values.start.toString(), values.end.toString());
-// initialised 'lables' inside build so as to rebuild this again and again as the change happens by the user
     return Scaffold(
-      appBar:AppBar(title: Text('My Application'),),
+      appBar:AppBar(title: Text('BMI APP'),),
       body: Center(
-          child: RangeSlider(
-            min: 0,
-            max: 100,
-            labels: lables,
-            divisions: 20,
-            activeColor: Colors.orange,
-            inactiveColor: Colors.purple,
-            values: values,
-            onChanged: (newValue){
-              values = newValue;
-              print('${newValue.start},${newValue.end}'); // this give what user has selected for further use
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedContainer(
+              duration: Duration(seconds: 1),
+              curve:Curves.bounceInOut , //for changing rate of change of motion ... IN--> animation Start, Out--> animation end
+              height: _height, // these arguments are double hence initialize it as double value
+              width: _width,
+              decoration: myDecor,
+
+            ),
+            ElevatedButton(onPressed: (){
               setState(() {
-
+                if (!flag){
+                  _width= 200.0;
+                  _height=100.0;
+                  myDecor = BoxDecoration(borderRadius: BorderRadius.circular(504), color: Colors.green);
+                  flag = true;
+                } else{
+                  _width= 100.0;
+                  _height=200.0;
+                  flag = false;
+                  myDecor= BoxDecoration(borderRadius: BorderRadius.circular(0), color: Colors.orange);
+                }
               });
-            },)
 
+            }, child: Text('Animate'))
+          ],
+        ),
       )
 
     );
