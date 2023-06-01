@@ -54,22 +54,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var arrIndex = [1,2,3,4,5,6,7,8,9,10];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(title: Text('Hero Animation'),),
-      body:Center(
-          child: Container(
-              child: InkWell(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder:  (context) => hero_animation()));
-                },
-                child: Hero(
-                  tag: 'background',
-                  child: Image.asset('assets/images/dog.png', height: 200,width: 200,),
-                ),
-              )
-          )
+      body: ListWheelScrollView(
+          itemExtent: 200,
+          children: arrIndex.map((value) => Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: Center(child: Text('$value')),
+                height: 200, width: 400,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(2),
+                color: Colors.orange),
+              ),
+            ),
+          )).toList()
       )
     );
    }
