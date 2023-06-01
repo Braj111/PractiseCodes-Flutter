@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:nepolean_codex/IntroPage.dart';
+import 'package:nepolean_codex/hero_animation_page.dart';
 import 'package:nepolean_codex/splash_screen.dart';
 // import 'package:nepolean_codex/ui_helper/util.dart';
 // import 'package:intl/intl.dart';
@@ -53,58 +54,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool isFirst = true;
-
- @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  //Timer(Duration(seconds: 4), (){
-    //reload(); // Don't call setState in initState directly---> bad practice becouse sometimes you may call a widget that has not been formed(once)
-    //});
-
-
-
- void reload(){
-    setState(() {
-      if(isFirst){
-        isFirst=false;
-      }else{
-        isFirst=true;
-      }
-    });
-  }
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(title: Text('Foo Animation'),),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center ,
-          children: [
-            AnimatedCrossFade(
-                firstChild: Container(height: 200, width: 200,color: Colors.green.shade200,),
-                secondChild: Image.asset('assets/images/man.png', width: 200, height: 200,),
-                crossFadeState: isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-                duration: Duration(seconds: 2),
-                firstCurve: Curves.bounceIn,
-                secondCurve: Curves.bounceInOut,
-                //sizeCurve:Curves.easeInOut, // When there is difference in size between childrens
-
-            ),
-            ElevatedButton(onPressed: (){
-              reload();
-            }, child: Text('Animate'))
-          ],
-        ),
+      appBar:AppBar(title: Text('Hero Animation'),),
+      body:Center(
+          child: Container(
+              child: InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder:  (context) => hero_animation()));
+                },
+                child: Hero(
+                  tag: 'background',
+                  child: Image.asset('assets/images/dog.png', height: 200,width: 200,),
+                ),
+              )
+          )
       )
-
     );
    }
 
