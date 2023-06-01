@@ -51,45 +51,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
-  var _height= 200.0;     //"_var" underscore at starting used to make this variable private
-  var _width = 100.0;    // should be double as Animated container height and width are by default double
+  var myOpacity= 1.0;
   var flag = false;
-  Decoration myDecor= BoxDecoration(borderRadius: BorderRadius.circular(2), color: Colors.orange);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(title: Text('BMI APP'),),
+      appBar:AppBar(title: Text('Foo Animation'),),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center ,
           children: [
-            AnimatedContainer(
-              duration: Duration(seconds: 1),
-              curve:Curves.bounceInOut , //for changing rate of change of motion ... IN--> animation Start, Out--> animation end
-              height: _height, // these arguments are double hence initialize it as double value
-              width: _width,
-              decoration: myDecor,
-
-            ),
+            AnimatedOpacity(opacity:myOpacity , duration: Duration(milliseconds: 100), curve: Curves.linear,child: Container(
+              width: 200,
+              height: 100,
+              color: Colors.blue ,
+            ),),
             ElevatedButton(onPressed: (){
-              setState(() {
-                if (!flag){
-                  _width= 200.0;
-                  _height=100.0;
-                  myDecor = BoxDecoration(borderRadius: BorderRadius.circular(504), color: Colors.green);
-                  flag = true;
-                } else{
-                  _width= 100.0;
-                  _height=200.0;
-                  flag = false;
-                  myDecor= BoxDecoration(borderRadius: BorderRadius.circular(0), color: Colors.orange);
-                }
-              });
 
-            }, child: Text('Animate'))
+              if(flag){
+                myOpacity= 1.0;
+                flag=false;
+              } else{
+                myOpacity = 0.0;
+                flag=true;
+              }
+
+              setState(() {});
+            }, child: Text('close'))
           ],
         ),
       )
