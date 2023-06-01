@@ -1,5 +1,7 @@
 //import 'dart:js_util';
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:nepolean_codex/IntroPage.dart';
 import 'package:nepolean_codex/splash_screen.dart';
@@ -51,8 +53,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var myOpacity= 1.0;
-  var flag = false;
+  bool isFirst = true;
+
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  //Timer(Duration(seconds: 4), (){
+    //reload(); // Don't call setState in initState directly---> bad practice becouse sometimes you may call a widget that has not been formed(once)
+    //});
+
+
+
+ void reload(){
+    setState(() {
+      if(isFirst){
+        isFirst=false;
+      }else{
+        isFirst=true;
+      }
+    });
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,23 +88,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center ,
           children: [
-            AnimatedOpacity(opacity:myOpacity , duration: Duration(milliseconds: 100), curve: Curves.linear,child: Container(
-              width: 200,
-              height: 100,
-              color: Colors.blue ,
-            ),),
+            AnimatedCrossFade(
+                firstChild: Container(height: 200, width: 200,color: Colors.green.shade200,),
+                secondChild: Image.asset('assets/images/man.png', width: 200, height: 200,),
+                crossFadeState: isFirst ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                duration: Duration(seconds: 2),
+                firstCurve: Curves.bounceIn,
+                secondCurve: Curves.bounceInOut,
+                //sizeCurve:Curves.easeInOut, // When there is difference in size between childrens
+
+            ),
             ElevatedButton(onPressed: (){
-
-              if(flag){
-                myOpacity= 1.0;
-                flag=false;
-              } else{
-                myOpacity = 0.0;
-                flag=true;
-              }
-
-              setState(() {});
-            }, child: Text('close'))
+              reload();
+            }, child: Text('Animate'))
           ],
         ),
       )
