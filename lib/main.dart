@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:nepolean_codex/IntroPage.dart';
 import 'package:nepolean_codex/hero_animation_page.dart';
 import 'package:nepolean_codex/splash_screen.dart';
@@ -54,25 +55,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  var arrIndex = [1,2,3,4,5,6,7,8,9,10];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(title: Text('Hero Animation'),),
-      body: ListWheelScrollView(
-          itemExtent: 200,
-          children: arrIndex.map((value) => Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Center(child: Text('$value')),
-                height: 200, width: 400,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(2),
-                color: Colors.orange),
-              ),
-            ),
-          )).toList()
+      appBar:AppBar(title: Text('Clip RRect'),),
+      body: Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(topRight: Radius.circular(22), bottomLeft: Radius.circular(22)),
+            child: Container(
+                color: Colors.orange,
+                height: 200,
+                width: 200)
+          )
       )
     );
    }
