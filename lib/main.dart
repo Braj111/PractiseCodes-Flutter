@@ -61,14 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar:AppBar(title: Text('Clip RRect'),),
       body: Center(
           child: ClipRRect(
-            borderRadius: BorderRadius.only(topRight: Radius.circular(22), bottomLeft: Radius.circular(22)),
-            child: Container(
-                color: Colors.orange,
-                height: 200,
-                width: 200)
+            borderRadius: BorderRadius.all(Radius.circular(50),),
+            child: Image.asset('assets/images/mountain.png', height: 200, width: 200, fit: BoxFit.fill,)
+          ),
+
           )
-      )
+
     );
    }
-
 }
