@@ -55,17 +55,46 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //var arrData = ['braj','braj','braj','braj','braj','braj','braj','braj','braj','braj','braj','braj','braj' ];
+  var arrData = [
+    {
+      'name' : 'Braj',
+      'mob':'7987728652',
+      'unread':'2'
+    },
+    {
+      'name' : 'Braj',
+      'mob':'7987728652',
+      'unread':'4'
+    },
+    {
+      'name' : 'Braj',
+      'mob':'7987728652',
+      'unread':'3'
+    },
+    {
+      'name' : 'Braj',
+      'mob':'7987728652',
+      'unread':'1'
+    }
+
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(title: Text('Clip RRect'),),
-      body: Center(
-          child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(50),),
-            child: Image.asset('assets/images/mountain.png', height: 200, width: 200, fit: BoxFit.fill,)
-          ),
-
-          )
+      body: ListView(
+        children: arrData.map((e) => ListTile(
+          leading: Icon(Icons.account_circle, size: 70,),
+          title: Text(e['name'].toString()),
+          subtitle: Text(e['mob'].toString()),
+          trailing: CircleAvatar(
+            child: Text(e['unread'].toString()),
+            radius:40,
+          backgroundColor: Colors.green,)
+        )
+        ).toList(),
+      )
 
     );
    }
