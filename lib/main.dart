@@ -54,46 +54,35 @@ class MyHomePage extends StatefulWidget {
 
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  //var arrData = ['braj','braj','braj','braj','braj','braj','braj','braj','braj','braj','braj','braj','braj' ];
-  var arrData = [
-    {
-      'name' : 'Braj',
-      'mob':'7987728652',
-      'unread':'2'
-    },
-    {
-      'name' : 'Braj',
-      'mob':'7987728652',
-      'unread':'4'
-    },
-    {
-      'name' : 'Braj',
-      'mob':'7987728652',
-      'unread':'3'
-    },
-    {
-      'name' : 'Braj',
-      'mob':'7987728652',
-      'unread':'1'
-    }
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin{ // we can use multiple mixing class together
+  late Animation animation;
+  late AnimationController animationController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    animationController = AnimationController(vsync: this, duration: Duration(seconds: 4)); // vsync need a value what will remain synchronous throughout an will update value
+    // 'this' represents class here
+    animation= Tween(begin: 200.0,end: 00.0).animate(animationController);
+    animationController.addListener(() { 
+      //print(animation.value);
+      setState(() {
 
-  ];
+      });
+    });
+    animationController.forward();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(title: Text('Clip RRect'),),
-      body: ListView(
-        children: arrData.map((e) => ListTile(
-          leading: Icon(Icons.account_circle, size: 70,),
-          title: Text(e['name'].toString()),
-          subtitle: Text(e['mob'].toString()),
-          trailing: CircleAvatar(
-            child: Text(e['unread'].toString()),
-            radius:40,
-          backgroundColor: Colors.green,)
-        )
-        ).toList(),
+      appBar:AppBar(title: Text('Tween Animation'),),
+      body: Center(
+        child: Container(
+          width: animation.value,
+          height: animation.value,
+          color: Colors.blue,
+        ),
       )
 
     );
