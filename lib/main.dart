@@ -56,36 +56,39 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin{ // we can use multiple mixing class together
-  late Animation animation;
-  late Animation colorAnimation;
-  late AnimationController animationController;
+  late Animation _animation;
+  late AnimationController _animationController;
+  var listRadius = [150.0,200.0,250.0,300.0,350.0,400.0,450.0,500.0];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    animationController = AnimationController(vsync: this, duration: Duration(seconds: 2)); // vsync need a value what will remain synchronous throughout an will update value
+    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 2), lowerBound: 0.8 ); // vsync need a value what will remain synchronous throughout an will update value
     // 'this' represents class here
-    animation= Tween(begin: 200.0,end: 100.0).animate(animationController);
-    colorAnimation =ColorTween(begin: Colors.blue, end: Colors.orange).animate(animationController);
-
-    animationController.addListener(() {
+    //_animation= Tween(begin: 0.0,end: 1.0).animate(_animationController);
+    //we need very small increment(0 to 1 is sufficient) hence that can be achieved through controller itself by default hence we dont need '_animation'
+    _animationController.addListener(() {
       //print(animation.value);
       setState(() {});
     });
-    animationController.forward();
+    _animationController.forward();
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(title: Text('Tween Animation'),),
+      appBar:AppBar(title: Text('Ripple  Animation'),),
       body: Center(
-        child: Container(
-          width: animation.value,
-          height: animation.value,
-          color: colorAnimation.value,
+        child: Stack(
+          alignment: Alignment.center,
+          children: listRadius.map((radius) => Container(
+            width: radius*_animationController.value, // this will reduce the circle size as controller value will be between 0 and 1
+            height: radius*_animationController.value,
+             decoration: BoxDecoration(shape: BoxShape.circle,
+                                       color: Colors.blue.withOpacity(1.0-_animationController.value))
+          )).toList()
+          //2 ways to reduce redundancy either through list mapping of different radius values or by creating a function that will return a widget upon calling
         ),
       )
-
     );
    }
 }
