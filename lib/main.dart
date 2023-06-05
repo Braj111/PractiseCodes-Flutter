@@ -80,15 +80,29 @@ class _MyHomePageState extends State<MyHomePage>
       body: Center(
         child: Stack(
           alignment: Alignment.center,
-          children: listRadius.map((radius) => Container(
-            width: radius*_animationController.value, // this will reduce the circle size as controller value will be between 0 and 1
-            height: radius*_animationController.value,
-             decoration: BoxDecoration(shape: BoxShape.circle,
-                                       color: Colors.blue.withOpacity(1.0-_animationController.value))
-          )).toList()
+          children: [
+            buildMyContainer(listRadius[0]),
+            buildMyContainer(listRadius[1]),
+            buildMyContainer(listRadius[2]),
+            buildMyContainer(listRadius[3]),
+            buildMyContainer(listRadius[4]),
+            buildMyContainer(listRadius[5]),
+            buildMyContainer(listRadius[6]),
+            buildMyContainer(listRadius[7]),
+            Icon(Icons.call, size: 60,)
+          ]
           //2 ways to reduce redundancy either through list mapping of different radius values or by creating a function that will return a widget upon calling
         ),
       )
+    );
+   }
+
+   Widget buildMyContainer(radius){
+    return Container(
+        width: radius*_animationController.value, // this will reduce the circle size as controller value will be between 0 and 1
+        height: radius*_animationController.value,
+        decoration: BoxDecoration(shape: BoxShape.circle,
+            color: Colors.blue.withOpacity(1.0-_animationController.value))
     );
    }
 }
