@@ -57,19 +57,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin{ // we can use multiple mixing class together
   late Animation animation;
+  late Animation colorAnimation;
   late AnimationController animationController;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    animationController = AnimationController(vsync: this, duration: Duration(seconds: 4)); // vsync need a value what will remain synchronous throughout an will update value
+    animationController = AnimationController(vsync: this, duration: Duration(seconds: 2)); // vsync need a value what will remain synchronous throughout an will update value
     // 'this' represents class here
-    animation= Tween(begin: 200.0,end: 00.0).animate(animationController);
-    animationController.addListener(() { 
-      //print(animation.value);
-      setState(() {
+    animation= Tween(begin: 200.0,end: 100.0).animate(animationController);
+    colorAnimation =ColorTween(begin: Colors.blue, end: Colors.orange).animate(animationController);
 
-      });
+    animationController.addListener(() {
+      //print(animation.value);
+      setState(() {});
     });
     animationController.forward();
   }
@@ -81,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage>
         child: Container(
           width: animation.value,
           height: animation.value,
-          color: Colors.blue,
+          color: colorAnimation.value,
         ),
       )
 
