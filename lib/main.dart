@@ -56,6 +56,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage>{ // we can use multiple mixing class together
+
+
   var nameController =TextEditingController();
   static const String KEYNAME ="name";
   var nameValue ="No value Saved";
@@ -113,10 +115,8 @@ class _MyHomePageState extends State<MyHomePage>{ // we can use multiple mixing 
 
     getValue() async{
     var prefs = await SharedPreferences.getInstance();
-    var  getName=  prefs.getString(KEYNAME );
+    var  getName=  prefs.getString(KEYNAME);
     nameValue = getName !=null ? getName : "No value Saved";
-    setState(() {
-
-    });
+    setState(() {});
     }
 }
